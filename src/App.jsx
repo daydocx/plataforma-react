@@ -1,9 +1,23 @@
-import './App.css';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import "./App.css";
+import { Blog } from "./pages/Blog/Blog";
+import { Menu } from "./componentes/Menu/Menu";
+import { Contato } from "./pages/Contato/Contato";
+import { Home } from "./pages/Home/Home";
+import { Usuarios } from "./pages/Usuarios/Usuarios";
 
 function App() {
   return (
     <div className="App">
-      <h1>Hello, React!</h1>
+      <BrowserRouter>
+        <Menu />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/contato" element={<Contato />} />
+          <Route path="/usuarios" element={<Usuarios />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
